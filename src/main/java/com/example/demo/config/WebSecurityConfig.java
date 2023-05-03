@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.apache.catalina.filters.CorsFilter;
+import org.springframework.web.filter.CorsFilter;
 
 @EnableWebSecurity
 @Slf4j
@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtAuthenticationFilter jwtAuthenticationFilter;
     
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) {
         try {
             // http 시큐리티 빌더
             http.cors() // WebMvcConfig에서 이미 설정했으므로 기본 cors 설정
